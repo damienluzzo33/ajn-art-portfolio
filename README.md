@@ -1,1 +1,2 @@
-# ajn-art-portfolio
+# AJN Art Portfolio 
+

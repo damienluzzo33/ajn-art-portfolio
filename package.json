@@ -1,0 +1,23 @@
+{
+  "name": "ajn-art-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damienluzzo33/ajn-art-portfolio.git"
+  },
+  "author": "Damien Luzzo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/damienluzzo33/ajn-art-portfolio/issues"
+  },
+  "homepage": "https://github.com/damienluzzo33/ajn-art-portfolio#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "create-react-app": "^5.0.0"
+  }
+}
