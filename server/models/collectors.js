@@ -36,23 +36,21 @@ const collectorSchema = new Schema({
 		required: 'You must provide a valid password',
 		trim: true
 	},
-	location: {
-		address: {
-			type: String
-		},
-		zip_code: {
-			type: String
-		},
-		city: {
-			type: String
-		},
-		state: {
-			type: String
-		},
-		country: {
-			type: String,
-			default: "United States"
-		}
+	address: {
+		type: String
+	},
+	zip_code: {
+		type: Number
+	},
+	city: {
+		type: String
+	},
+	state: {
+		type: String
+	},
+	country: {
+		type: String,
+		default: "United States"
 	},
 	subscribed: {
 		type: Boolean,
@@ -82,18 +80,9 @@ const collectorSchema = new Schema({
 	],
 	purchased_art: [
 		{
-			piece: {
-				type: ObjectId,
-				ref: "Product"
-			},
-			gift: {
-				type: Boolean
-			},
-			coupon_used: {
-				type: Boolean
-			}
+			type: ObjectId,
+			ref: "Product"
 		}
-		
 	],
 	purchases: {
 		type: Number,

@@ -42,12 +42,10 @@ const productSchema = new Schema({
         }
     ],
     nft: {
-        hasNft: {
-            type: Boolean
-        },
-        link: {
-            type: String
-        }
+        type: Boolean
+    },
+    nft_link: {
+        type: String
     },
     tattoo_template_price: {
         type: Number,
