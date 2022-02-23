@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
-const collectorSchema = new Schema({
+const productSchema = new Schema({
     title: {
         type: String
     },
@@ -32,7 +32,34 @@ const collectorSchema = new Schema({
     original_price: {
         type: Number
     },
-    
+    limited_edition_price: {
+        type: Number
+    },
+    pod: [
+        {
+            type: ObjectId,
+            ref: "PodOptions"
+        }
+    ],
+    nft: {
+        hasNft: {
+            type: Boolean
+        },
+        link: {
+            type: String
+        }
+    },
+    tattoo_template_price: {
+        type: Number,
+        default: 100
+    },
+    digital: {
+        type: Boolean
+    },
+    discount: {
+        type: Number,
+        default: 0
+    }
 })
 
 const Product = mongoose.model('Product', productSchema);
