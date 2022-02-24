@@ -24,7 +24,7 @@ const typeDefs = gql`
         email: String!
         password: String!
         address: String
-        zip_code: Number
+        zip_code: Int
         city: String
         state: String
         country: String
@@ -46,20 +46,20 @@ const typeDefs = gql`
         description: String!
         blogs: [Blog]
         original_art: Boolean
-        limited_edition_count: Number
-        original_price: Number
-        limited_edition_price: Number
+        limited_edition_count: Int
+        original_price: Int
+        limited_edition_price: Int
         pod: [PodOptions]
         nft: Boolean
         nft_link: String
-        tattoo_template_price: Number
+        tattoo_template_price: Int
         digital: Boolean
-        discount: Number
+        discount: Int
     }
 
     type Auth {
         token: ID!
-        user: User
+        collector: Collector
     }
 
     type Query {
@@ -77,10 +77,10 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        loginCollector(username: String!, password: String!): Auth
+        loginCollector(email: String!, password: String!): Auth
         createCollector(first_name: String!, last_name: String!, email: String!, password: String!): Auth
         
-        createProduct(title: String!, medium: String!, dimensions: String!, description: String!, original_art: Boolean!, limited_edition_count: Number!, original_price: Number!, limited_edition_price: Number!, nft: Boolean!, nft_link: String, tattoo_template_price: Number!, digital: Boolean!): Product
+        createProduct(title: String!, medium: String!, dimensions: String!, description: String!, original_art: Boolean!, limited_edition_count: Int!, original_price: Int!, limited_edition_price: Int!, nft: Boolean!, nft_link: String, tattoo_template_price: Int!, digital: Boolean!): Product
         connectBlog(blogId: ID!, productId: ID!): Product
         connectPodOptions(podId: ID!, productId: ID!): Product
 
