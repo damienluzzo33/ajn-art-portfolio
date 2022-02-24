@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
@@ -99,6 +100,19 @@ const collectorSchema = new Schema({
 		default: Date.now
     }
 });
+
+collectorSchema.pre('save', async function(next) {
+	if (this.isNew || this.isModified('password')) {
+		this.password = await bcrypt.hash(this.password, 10);
+	}
+	this.first_name.charAt(0).toUpperCase() + this.first_name.slice(1);
+	this.last_name.charAt(0).toUpperCase() + this.last_name.slice(1);
+	next();
+});
+
+collectorSchema.methods.comparePassword = async function(password) {
+	return bcrypt.compare(password, this.password);
+};
 
 const Collector = mongoose.model('Collector', collectorSchema);
 
