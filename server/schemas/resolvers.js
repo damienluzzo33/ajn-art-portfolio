@@ -86,7 +86,7 @@ const resolvers = {
 					return new ApolloError('An account with this email already exists', 422);
 				}
 
-                const newCollector = await User.create({ first_name, last_name, email, password });
+                const newCollector = await Collector.create({ first_name, last_name, email, password });
 	
 				const tokenData = {
 					email: newCollector.email, 
@@ -103,13 +103,51 @@ const resolvers = {
 			}
 		},
         createProduct: async (parent, args) => {
-
+            try {
+                const { title, medium, dimensions, description, original_art, limited_edition_count, original_price, limited_edition_price, nft, nft_link, tattoo_template_price, digital } = args;
+                const newProduct = await Product.create({
+                    title: title, 
+                    medium: medium, 
+                    dimensions: dimensions, 
+                    description: description, 
+                    original_art: original_art, 
+                    limited_edition_count: limited_edition_count, 
+                    original_price: original_price, 
+                    limited_edition_price: limited_edition_price, 
+                    nft: nft, 
+                    nft_link: nft_link, 
+                    tattoo_template_price: tattoo_template_price, 
+                    digital: digital
+                });
+                return newProduct;
+            } catch (err) {
+                console.log(err);
+                return new ApolloError(`${err.errors}`, '400');
+            }
         },
         connectBlog: async (parent, args) => {
-
+            const { blogId, productId } = args;
+            return await Product.findOneAndUpdate(
+                { _id: productId },
+                {
+                    $addToSet: {
+                        blogs: blogId
+                    }
+                },
+                { new: true }
+            ).populate("blogs");
         },
         connectPodOptions: async (parent, args) => {
-
+            const { podId, productId } = args;
+            return await Product.findOneAndUpdate(
+                { _id: productId },
+                {
+                    $addToSet: {
+                        pod: podId
+                    }
+                },
+                { new: true }
+            ).populate("pod");
         },
     }
 }
