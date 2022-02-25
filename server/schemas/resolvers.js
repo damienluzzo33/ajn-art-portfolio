@@ -132,16 +132,28 @@ const resolvers = {
             }
         },
         connectBlog: async (parent, args) => {
-            const { blogId, productId } = args;
-            return await Product.findOneAndUpdate(
-                { _id: productId },
-                {
-                    $addToSet: {
-                        blogs: blogId
-                    }
-                },
-                { new: true }
-            ).populate("blogs");
+            const { interestId, productId } = args;
+            const blogs = await Blog.find({
+                tags: {
+                    _id: interestId
+                }
+            });
+
+            for (let blog of blogs) {
+                await Product.findOneAndUpdate(
+                    { _id: productId },
+                    {
+                        $addToSet: {
+                            blogs: blog._id
+                        }
+                    },
+                    { new: true }
+                );
+            }
+
+            const updatedProduct = await Product.findOne({ _id: productId }).populate("blogs");
+
+            return updatedProduct;
         },
         connectPodOptions: async (parent, args) => {
             const { podId, productId } = args;

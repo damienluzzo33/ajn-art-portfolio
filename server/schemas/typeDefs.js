@@ -96,7 +96,7 @@ const typeDefs = gql`
         createCollector(first_name: String!, last_name: String!, email: String!, password: String!): Auth
         
         createProduct(title: String!, medium: String!, dimensions: String!, description: String!, original_art: Boolean!, limited_edition_count: Int!, original_price: Int!, limited_edition_price: Int!, nft: Boolean!, nft_link: String, tattoo_template_price: Int!, digital: Boolean!): Product
-        connectBlog(blogId: ID!, productId: ID!): Product
+        connectBlog(interestId: ID!, productId: ID!): Product
         connectPodOptions(podId: ID!, productId: ID!): Product
 
     }
