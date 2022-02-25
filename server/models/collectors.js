@@ -85,6 +85,12 @@ const collectorSchema = new Schema({
 			ref: "Product"
 		}
 	],
+	purchased_gifts: [
+		{
+			type: ObjectId,
+			ref: "Product"
+		}
+	],
 	purchases: {
 		type: Number,
 		default: 0

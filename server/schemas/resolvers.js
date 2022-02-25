@@ -13,6 +13,7 @@ const resolvers = {
                 .populate("interests")
                 .populate("loved_art")
                 .populate("purchased_art")
+                .populate("purchased_gifts")
                 .populate("coupons_available")
         },
         allProducts: async (parent, args) => {
@@ -21,13 +22,16 @@ const resolvers = {
                 .populate("pod")
         },
         allBlogs: async (parent, args) => {
-            return await Blog.find({});
+            return await Blog.find({})
+                .populate("tags")
+                .populate("content");
         },
         allPodOptions: async (parent, args) => {
             return await PodOptions.find({});
         },
         allInterests: async (parent, args) => {
-            return await Interest.find({});
+            return await Interest.find({})
+                .populate("interested-collectors");
         },
         allCoupons: async (parent, args) => {
             return await Coupon.find({});
@@ -49,7 +53,9 @@ const resolvers = {
         },
         selectedBlog: async (parent,args) => {
             const {blogId} = args;
-            return await Blog.findOne({_id: blogId});
+            return await Blog.findOne({_id: blogId})
+                .populate('tags')
+                .populate('content');
         },
         selectedCoupon: async (parent,args) => {
             const {couponId} = args;

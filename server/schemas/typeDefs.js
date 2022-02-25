@@ -3,18 +3,30 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
     type Blog {
         _id: ID!
+        title: String!
+        content: [String]
+        tags: [Interest]
+        date_created: String
     }
 
     type PodOptions {
         _id: ID!
+        pod_name: String!
+        pod_image: String!
     }
 
     type Coupon {
         _id: ID!
+        coupon_name: String!
+        discount: Int!
+        days_until_expired: Int
+        date_created: String
     }
 
     type Interest {
         _id: ID!
+        interest_name: String!
+        interested_collectors: [Collector]
     }
 
     type Collector {
@@ -33,7 +45,9 @@ const typeDefs = gql`
         collectors_gifts: Boolean
         interests: [Interest]
         loved_art: [Product]
-        purchasedArt: [Product]
+        purchased_art: [Product]
+        purchased_gifts: [Product]
+        purchases: Int
         coupons_available: [Coupon]
         date_joined: String
     }
@@ -55,6 +69,7 @@ const typeDefs = gql`
         tattoo_template_price: Int
         digital: Boolean
         discount: Int
+        date_created: String
     }
 
     type Auth {
