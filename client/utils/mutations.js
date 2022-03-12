@@ -75,6 +75,35 @@ mutation createProduct($title: String!, $medium: String!, $dimensions: String!, 
 }
 `;
 
+export const CONNECT_BLOG = gql`
+mutation connectBlog($interestId: ID!, $productId: ID!) {
+    connectBlog(interestId: $interestId, productId: $productId) {
+        _id
+        title
+        blogs {
+            _id
+            title
+        }
+    }
+}
+`;
+
+export const CONNECT_POD_OPTIONS = gql`
+mutation connectPodOptions($podId: ID!, $productId: ID!) {
+    connectPodOptions(podId: $podId, productId: $productId) {
+        _id
+        title
+        description
+        pod: {
+            _id
+            pod_name
+            pod_image
+        }
+        date_created
+    }
+}
+`;
+
 //! might want to add interests (maybe call it tags like we did for blogs model)
 
 //! could also just use chosen "tags" to populate blogs dynamically after first form is submitted 
