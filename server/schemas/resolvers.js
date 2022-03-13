@@ -31,7 +31,7 @@ const resolvers = {
         },
         allInterests: async (parent, args) => {
             return await Interest.find({})
-                .populate("interested-collectors");
+                .populate("interested_collectors");
         },
         allCoupons: async (parent, args) => {
             return await Coupon.find({});
