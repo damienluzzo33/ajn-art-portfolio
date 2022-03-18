@@ -7,22 +7,22 @@ export default function Home() {
     return (
         <div id="home-main">
             <div>
-                <a>
+                <a href="/collectors" alt="collector data">
                     <button>Collector Data</button>
                 </a>
             </div>
             <div>
-                <a>
+                <a href="/blogs" alt="blog data">
                     <button>Blog Data</button>
                 </a>
             </div>
             <div>
-                <a>
+                <a href="/products" alt="product data">
                     <button>Product Data</button>
                 </a>
             </div>
             <div>
-                <a>
+                <a href="/pods" alt="POD data">
                     <button>POD Data</button>
                 </a>
             </div>
