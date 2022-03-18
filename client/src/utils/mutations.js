@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from '@apollo/client/index.js';
 
 export const LOGIN_COLLECTOR = gql`
 mutation loginCollector($email: String!, $password: String!) {

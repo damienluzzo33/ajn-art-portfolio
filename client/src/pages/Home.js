@@ -7,24 +7,34 @@ export default function Home() {
     return (
         <div id="home-main">
             <div>
-                <a href="/collectors" alt="collector data">
+                <Link to="/collectors" alt="collector data">
                     <button>Collector Data</button>
-                </a>
+                </Link>
             </div>
             <div>
-                <a href="/blogs" alt="blog data">
+                <Link to="/blogs" alt="blog data">
                     <button>Blog Data</button>
-                </a>
+                </Link>
             </div>
             <div>
-                <a href="/products" alt="product data">
+                <Link to="/products" alt="product data">
                     <button>Product Data</button>
-                </a>
+                </Link>
             </div>
             <div>
-                <a href="/pods" alt="POD data">
+                <Link to="/pods" alt="POD data">
                     <button>POD Data</button>
-                </a>
+                </Link>
+            </div>
+            <div>
+                <Link to="/coupons" alt="Coupon data">
+                    <button>Coupon Data</button>
+                </Link>
+            </div>
+            <div>
+                <Link to="/interests" alt="Interest data">
+                    <button>Interest Data</button>
+                </Link>
             </div>
         </div>
     )

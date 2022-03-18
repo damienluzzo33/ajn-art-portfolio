@@ -1,10 +1,12 @@
 import './App.css';
-import Home from './pages/Home';
+import Home from './pages/Home.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Collectors from './pages/Collectors';
-import Products from './pages/Products';
-import Blogs from './pages/Blogs';
-import Pods from './pages/Pods';
+import Collectors from './pages/Collectors.js';
+import Products from './pages/Products.js';
+import Blogs from './pages/Blogs.js';
+import Pods from './pages/Pods.js';
+import Coupons from './pages/Coupons.js';
+import Interests from './pages/Interests.js';
 
 import {
     ApolloClient,
@@ -59,6 +61,12 @@ function App() {
                         </Route>
                         <Route exact path="/pods">
                             <Pods />
+                        </Route>
+                        <Route exact path="/coupons">
+                            <Coupons />
+                        </Route>
+                        <Route exact path="/interests">
+                            <Interests />
                         </Route>
                     </Switch>
                 </div>

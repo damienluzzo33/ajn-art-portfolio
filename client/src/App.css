@@ -10,12 +10,12 @@ body {
     align-items: center;
     text-align: center;
     background-color: rgba(36, 46, 77, 0.925);
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw; */
+    height: 100%;
 }
 
 .App > div:first-of-type {
-    height: 20vh;
+    height: 20%;
     width: 100%;
 }
 
@@ -27,6 +27,7 @@ h1 {
     color: whitesmoke;
     border-radius: 20px;
     transition: box-shadow 0.4s linear;
+    /* cursor: pointer; */
 }
 
 h1:hover {
@@ -35,7 +36,7 @@ h1:hover {
 }
 
 #home-main {
-    height: 80vh;
+    height: 80%;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -56,5 +57,18 @@ h1:hover {
 #home-main div a button {
     width: 100%;
     height: 100%;
-    background-color: skyblue;
+    background-color: #48b4ef;
+    border-radius: 25px;
+    box-shadow: 4px 4px 6px black;
+    transition: box-shadow, border, background-color 0.25s linear;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: serif;
+}
+
+#home-main div a button:hover {
+    box-shadow: 4px 4px 6px white;
+    border: 3px solid white;
+    background-color: rgb(48, 218, 236);
+    cursor: pointer;
 }

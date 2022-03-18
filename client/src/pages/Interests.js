@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { ALL_POD_OPTIONS } from "../utils/queries";
+import { ALL_INTERESTS } from "../utils/queries";
 
-export default function Pods() {
-    const getAllPodOptions = useQuery(ALL_POD_OPTIONS);
-    const errors = getAllPodOptions.errors;
-    const loading = getAllPodOptions.loading;
+export default function Interests() {
+    const getAllInterests = useQuery(ALL_INTERESTS);
+    const errors = getAllInterests.errors;
+    const loading = getAllInterests.loading;
 
     if (loading) {
         return (
@@ -14,8 +14,8 @@ export default function Pods() {
         )
     }
 
-    const allPodOptions = getAllPodOptions.data?.allPodOptions;
-    console.log(allPodOptions);
+    const allInterests = getAllInterests.data?.allInterests;
+    console.log(allInterests);
 
     return (
         <div>
@@ -25,7 +25,7 @@ export default function Pods() {
                 </div>
             ) : (
                 <div>
-                    <p>All Them POD Options Go Here</p>
+                    <p>All Them Interests Go Here</p>
                     <Link to="/">Go Back Home</Link>
                 </div>
             )}

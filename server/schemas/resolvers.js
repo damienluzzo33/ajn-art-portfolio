@@ -1,4 +1,4 @@
-const { Collector, Coupon, Interest, PodOptions, Product, Blog } = require('../models/index');
+const { Collector, Coupon, Interest, PodOptions, Product, Blog } = require('../models/index.js');
 // const { signToken } = require('../utils/auth');
 const { AuthenticationError, ApolloError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');

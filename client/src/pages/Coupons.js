@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { ALL_POD_OPTIONS } from "../utils/queries";
+import { ALL_COUPONS } from "../utils/queries";
 
-export default function Pods() {
-    const getAllPodOptions = useQuery(ALL_POD_OPTIONS);
-    const errors = getAllPodOptions.errors;
-    const loading = getAllPodOptions.loading;
+export default function Coupons() {
+    const getAllCoupons = useQuery(ALL_COUPONS);
+    const errors = getAllCoupons.errors;
+    const loading = getAllCoupons.loading;
 
     if (loading) {
         return (
@@ -14,8 +14,8 @@ export default function Pods() {
         )
     }
 
-    const allPodOptions = getAllPodOptions.data?.allPodOptions;
-    console.log(allPodOptions);
+    const allCoupons = getAllCoupons.data?.allCoupons;
+    console.log(allCoupons);
 
     return (
         <div>
@@ -25,7 +25,7 @@ export default function Pods() {
                 </div>
             ) : (
                 <div>
-                    <p>All Them POD Options Go Here</p>
+                    <p>All Them Coupons Go Here</p>
                     <Link to="/">Go Back Home</Link>
                 </div>
             )}

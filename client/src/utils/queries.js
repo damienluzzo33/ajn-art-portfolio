@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from '@apollo/client/index.js';
 
 export const ALL_COLLECTORS = gql`
 query allCollectors {

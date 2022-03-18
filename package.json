@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/damienluzzo33/ajn-art-portfolio#readme",
   "dependencies": {
-    "concurrently": "^7.0.0",
-    "create-react-app": "^5.0.0"
+    "concurrently": "^7.0.0"
   }
 }
