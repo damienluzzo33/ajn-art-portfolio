@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery } from "@apollo/client";
+import { useQuery } from '@apollo/client';
 import { ALL_COLLECTORS } from '../utils/queries';
+import { CollectorTable } from "../components/Tables";
 
 export default function Collectors() {
     const getAllCollectors = useQuery(ALL_COLLECTORS);
@@ -9,9 +10,7 @@ export default function Collectors() {
     const loading = getAllCollectors.loading;
 
     if (loading) {
-        return (
-            <div>Loading...</div>
-        )
+        return <div>Loading...</div>;
     }
 
     const allCollectors = getAllCollectors.data?.allCollectors;
@@ -25,10 +24,12 @@ export default function Collectors() {
                 </div>
             ) : (
                 <div>
-                    <p>All Them Collectors Go Here</p>
+                    <div className="data-dashboard">
+                        <CollectorTable allCollectors={allCollectors} />
+                    </div>
                     <Link to="/">Go Back Home</Link>
                 </div>
             )}
         </div>
-    )
+    );
 }

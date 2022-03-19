@@ -72,3 +72,7 @@ h1:hover {
     background-color: rgb(48, 218, 236);
     cursor: pointer;
 }
+
+.data-dashboard {
+    height: 400px;
+}

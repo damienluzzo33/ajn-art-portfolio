@@ -1,7 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
-import { ALL_INTERESTS } from "../utils/queries";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { ALL_INTERESTS } from '../utils/queries';
+import { InterestsTable } from '../components/Tables';
 
 export default function Interests() {
     const getAllInterests = useQuery(ALL_INTERESTS);
@@ -9,9 +10,7 @@ export default function Interests() {
     const loading = getAllInterests.loading;
 
     if (loading) {
-        return (
-            <div>Loading...</div>
-        )
+        return <div>Loading...</div>;
     }
 
     const allInterests = getAllInterests.data?.allInterests;
@@ -25,10 +24,12 @@ export default function Interests() {
                 </div>
             ) : (
                 <div>
-                    <p>All Them Interests Go Here</p>
+                    <div className="data-dashboard">
+                        <InterestsTable allInterests={allInterests} />
+                    </div>
                     <Link to="/">Go Back Home</Link>
                 </div>
             )}
         </div>
-    )
+    );
 }

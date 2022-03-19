@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
     //* NOTE: Still need to set up authentication before launch
@@ -37,5 +37,5 @@ export default function Home() {
                 </Link>
             </div>
         </div>
-    )
+    );
 }
