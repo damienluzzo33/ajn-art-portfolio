@@ -17,13 +17,13 @@ export default function Blogs() {
     console.log(allBlogs);
 
     return (
-        <div>
+        <div className="display-page">
             {errors ? (
                 <div>
                     <p>{errors}</p>
                 </div>
             ) : (
-                <div>
+                <div className="main-data-container">
                     <div className="data-dashboard">
                         <BlogTable allBlogs={allBlogs} />
                     </div>

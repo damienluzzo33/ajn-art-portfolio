@@ -17,13 +17,13 @@ export default function Pods() {
     console.log(allPodOptions);
 
     return (
-        <div>
+        <div className="display-page">
             {errors ? (
                 <div>
                     <p>{errors}</p>
                 </div>
             ) : (
-                <div>
+                <div className="main-data-container">
                     <div className="data-dashboard">
                         <PodTable allPodOptions={allPodOptions} />
                     </div>

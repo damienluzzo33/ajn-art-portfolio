@@ -17,13 +17,13 @@ export default function Collectors() {
     console.log(allCollectors);
 
     return (
-        <div>
+        <div className="display-page">
             {errors ? (
                 <div>
                     <p>{errors}</p>
                 </div>
             ) : (
-                <div>
+                <div className="main-data-container">
                     <div className="data-dashboard">
                         <CollectorTable allCollectors={allCollectors} />
                     </div>

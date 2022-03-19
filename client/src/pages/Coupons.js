@@ -17,13 +17,13 @@ export default function Coupons() {
     console.log(allCoupons);
 
     return (
-        <div>
+        <div className="display-page">
             {errors ? (
                 <div>
                     <p>{errors}</p>
                 </div>
             ) : (
-                <div>
+                <div className="main-data-container">
                     <div className="data-dashboard">
                         <CouponTable allCoupons={allCoupons} />
                     </div>

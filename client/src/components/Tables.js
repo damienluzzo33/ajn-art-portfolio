@@ -11,12 +11,11 @@ export function CollectorTable(props) {
                     <th>First</th>
                     <th>Last</th>
                     <th>Email</th>
-                    <th>Address</th>
                     <th>City</th>
                     <th>Zip Code</th>
                     <th>State</th>
                     <th>Subscribed</th>
-                    <th>Collector Gifts</th>
+                    <th>Gifts</th>
                     <th>Date Joined</th>
                     <th>More</th>
                 </tr>
@@ -25,12 +24,11 @@ export function CollectorTable(props) {
                         <td>{collector.first_name}</td>
                         <td>{collector.last_name}</td>
                         <td>{collector.email}</td>
-                        <td>{collector.address}</td>
                         <td>{collector.city}</td>
                         <td>{collector.zip_code}</td>
                         <td>{collector.state}</td>
-                        <td>{collector.subscribed}</td>
-                        <td>{collector.collectors_gifts}</td>
+                        <td>{collector.subscribed ? "true" : "false"}</td>
+                        <td>{collector.collectors_gifts ? "true" : "false"}</td>
                         <td>{collector.date_joined}</td>
                         <td>
                             <button onClick={null}>More</button>
@@ -72,15 +70,15 @@ export function ProductTable(props) {
                         <td>{product.title}</td>
                         <td>{product.medium}</td>
                         <td>{product.dimensions}</td>
-                        <td>{product.description}</td>
-                        <td>{product.original_art}</td>
+                        <td><button onClick={null}>View</button></td>
+                        <td>{product.original_art ? "true" : "false"}</td>
                         <td>{product.limited_edition_count}</td>
                         <td>{product.original_price}</td>
                         <td>{product.limited_edition_price}</td>
-                        <td>{product.nft}</td>
+                        <td>{product.nft ? "true" : "false"}</td>
                         <td>{product.nft_link}</td>
                         <td>{product.tattoo_template_price}</td>
-                        <td>{product.digital}</td>
+                        <td>{product.digital ? "true" : "false"}</td>
                         <td>{product.discount}</td>
                         <td>{product.date_created}</td>
                         <td>
@@ -110,7 +108,7 @@ export function BlogTable(props) {
                 {allBlogs.map((blog) => (
                     <tr>
                         <td>{blog.title}</td>
-                        <td>{blog.content}</td>
+                        <td><button onClick={null}>View</button></td>
                         <td>{blog.date_created}</td>
                         <td>
                             <button onClick={null}>More</button>

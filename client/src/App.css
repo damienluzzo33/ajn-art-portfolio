@@ -6,11 +6,12 @@ body {
 .App {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     text-align: center;
     background-color: rgba(36, 46, 77, 0.925);
     /* width: 100vw; */
+    min-height: 100vh;
     height: 100%;
 }
 
@@ -73,6 +74,40 @@ h1:hover {
     cursor: pointer;
 }
 
+.display-page {
+    height: 100%;
+}
+
+.main-data-container {
+    height: 100%;
+}
+
 .data-dashboard {
     height: 400px;
+}
+
+.data-table-div {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(16, 16, 151, 0.753);
+    border-radius: 15px;
+    border: 2px solid white;
+}
+
+.data-table-div table tr th,
+.data-table-div table tr td {
+    color: white;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.data-table-div table td,
+.data-table-div table th {
+    border-bottom: 1px solid white;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+.data-table-div table tr:last-of-type td {
+    border-bottom: none;
 }
