@@ -27,7 +27,9 @@ export default function Interests() {
                     <div className="data-dashboard">
                         <InterestsTable allInterests={allInterests} />
                     </div>
-                    <Link to="/">Go Back Home</Link>
+                    <div className="go-back-div">
+                        <Link to="/">Go Back Home</Link>
+                    </div>
                 </div>
             )}
         </div>

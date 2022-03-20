@@ -27,7 +27,9 @@ export default function Products() {
                     <div className="data-dashboard">
                         <ProductTable allProducts={allProducts} />
                     </div>
-                    <Link to="/">Go Back Home</Link>
+                    <div className="go-back-div">
+                        <Link to="/">Go Back Home</Link>
+                    </div>
                 </div>
             )}
         </div>

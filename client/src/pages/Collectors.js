@@ -27,7 +27,9 @@ export default function Collectors() {
                     <div className="data-dashboard">
                         <CollectorTable allCollectors={allCollectors} />
                     </div>
-                    <Link to="/">Go Back Home</Link>
+                    <div className="go-back-div">
+                        <Link to="/">Go Back Home</Link>
+                    </div>
                 </div>
             )}
         </div>

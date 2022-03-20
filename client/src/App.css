@@ -76,22 +76,36 @@ h1:hover {
 
 .display-page {
     height: 100%;
+    padding-bottom: 40px;
+    /* overflow-x: scroll; */
 }
+
 
 .main-data-container {
     height: 100%;
 }
 
 .data-dashboard {
-    height: 400px;
+    height: 350px;
+    width: 100vw;
+    overflow-y: scroll;
+}
+
+.data-dashboard::-webkit-scrollbar {
+    display: none;
 }
 
 .data-table-div {
+    width: fit-content;
     margin: 10px;
     padding: 10px;
     background-color: rgba(16, 16, 151, 0.753);
     border-radius: 15px;
     border: 2px solid white;
+}
+
+.data-table-div table {
+    width: 100%;
 }
 
 .data-table-div table tr th,
@@ -110,4 +124,22 @@ h1:hover {
 
 .data-table-div table tr:last-of-type td {
     border-bottom: none;
+}
+
+.go-back-div {
+    margin-top: 20px;
+}
+
+.go-back-div a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 8px 10px;
+    border-radius: 18px;
+    font-weight: 700;
+}
+
+.go-back-div a:hover {
+    background-color: rgba(48, 217, 236, 0.897);
+    box-shadow: 2px 2px 4px white, 2px -2px 4px white, -2px 2px 4px white, -2px -2px 4px white ;
 }

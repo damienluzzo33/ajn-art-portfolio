@@ -27,7 +27,9 @@ export default function Blogs() {
                     <div className="data-dashboard">
                         <BlogTable allBlogs={allBlogs} />
                     </div>
-                    <Link to="/">Go Back Home</Link>
+                    <div className="go-back-div">
+                        <Link to="/">Go Back Home</Link>
+                    </div>
                 </div>
             )}
         </div>
