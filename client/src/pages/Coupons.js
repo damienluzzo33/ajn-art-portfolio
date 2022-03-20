@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { ALL_COUPONS } from '../utils/queries';
 import { CouponTable } from '../components/Tables';
+import { CouponOptions } from '../components/OptionsRow';
+import { CouponViews } from '../components/ViewToggleRow';
 
 export default function Coupons() {
     const getAllCoupons = useQuery(ALL_COUPONS);
@@ -27,6 +29,8 @@ export default function Coupons() {
                     <div className="data-dashboard">
                         <CouponTable allCoupons={allCoupons} />
                     </div>
+                    <CouponViews data={allCoupons} />
+                    <CouponOptions data={allCoupons} />
                     <div className="go-back-div">
                         <Link to="/">Go Back Home</Link>
                     </div>

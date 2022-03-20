@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { ALL_BLOGS } from '../utils/queries';
 import { BlogTable } from '../components/Tables';
+import { BlogOptions } from '../components/OptionsRow';
 
 export default function Blogs() {
     const getAllBlogs = useQuery(ALL_BLOGS);
@@ -27,6 +28,7 @@ export default function Blogs() {
                     <div className="data-dashboard">
                         <BlogTable allBlogs={allBlogs} />
                     </div>
+                    <BlogOptions data={allBlogs} />
                     <div className="go-back-div">
                         <Link to="/">Go Back Home</Link>
                     </div>

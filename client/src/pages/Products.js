@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { ALL_PRODUCTS } from '../utils/queries';
 import { ProductTable } from '../components/Tables';
+import { ProductOptions } from '../components/OptionsRow';
+import { ProductViews } from '../components/ViewToggleRow';
 
 export default function Products() {
     const getAllProducts = useQuery(ALL_PRODUCTS);
@@ -27,6 +29,8 @@ export default function Products() {
                     <div className="data-dashboard">
                         <ProductTable allProducts={allProducts} />
                     </div>
+                    <ProductViews data={allProducts} />
+                    <ProductOptions data={allProducts} />
                     <div className="go-back-div">
                         <Link to="/">Go Back Home</Link>
                     </div>

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { ALL_COLLECTORS } from '../utils/queries';
 import { CollectorTable } from "../components/Tables";
+import { CollectorOptions } from '../components/OptionsRow';
+import { CollectorViews } from '../components/ViewToggleRow';
 
 export default function Collectors() {
     const getAllCollectors = useQuery(ALL_COLLECTORS);
@@ -27,6 +29,8 @@ export default function Collectors() {
                     <div className="data-dashboard">
                         <CollectorTable allCollectors={allCollectors} />
                     </div>
+                    <CollectorViews data={allCollectors} />
+                    <CollectorOptions data={allCollectors} />
                     <div className="go-back-div">
                         <Link to="/">Go Back Home</Link>
                     </div>
