@@ -1,42 +1,49 @@
 import React from 'react';
+import { CollectorOptions } from './OptionsRow';
 
 export function CollectorTable(props) {
     
     const { allCollectors } = props;
 
+    const [newData, setNewData] = useState(allCollectors);
+
     return (
-        <div className="data-table-div">
-            <table>
-                <tr>
-                    <th>First</th>
-                    <th>Last</th>
-                    <th>Email</th>
-                    <th>City</th>
-                    <th>Zip Code</th>
-                    <th>State</th>
-                    <th>Subscribed</th>
-                    <th>Gifts</th>
-                    <th>Date Joined</th>
-                    <th>More</th>
-                </tr>
-                {allCollectors.map((collector) => (
-                    <tr>
-                        <td>{collector.first_name}</td>
-                        <td>{collector.last_name}</td>
-                        <td>{collector.email}</td>
-                        <td>{collector.city}</td>
-                        <td>{collector.zip_code}</td>
-                        <td>{collector.state}</td>
-                        <td>{collector.subscribed ? "true" : "false"}</td>
-                        <td>{collector.collectors_gifts ? "true" : "false"}</td>
-                        <td>{collector.date_joined}</td>
-                        <td>
-                            <button onClick={null}>More</button>
-                        </td>
-                    </tr>
-                ))}
-            </table>
-        </div>
+            <React.Fragment>
+                <div className="data-table-div">
+                    <table>
+                        <tr>
+                            <th>First</th>
+                            <th>Last</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Zip Code</th>
+                            <th>State</th>
+                            <th>Subscribed</th>
+                            <th>Gifts</th>
+                            <th>Date Joined</th>
+                            <th>More</th>
+                        </tr>
+                        {newData.map((collector) => (
+                        <tr>
+                            <td>{collector.first_name}</td>
+                            <td>{collector.last_name}</td>
+                            <td>{collector.email}</td>
+                            <td>{collector.city}</td>
+                            <td>{collector.zip_code}</td>
+                            <td>{collector.state}</td>
+                            <td>{collector.subscribed ? "true" : "false"}</td>
+                            <td>{collector.collectors_gifts ? "true" : "false"}</td>
+                            <td>{collector.date_joined}</td>
+                            <td>
+                                <button onClick={null}>More</button>
+                            </td>
+                        </tr>
+                    ))}
+                </table>
+            </div>
+            <CollectorOptions newData={newData} setNewData={setNewData} />
+        </React.Fragment>
+        
     );
 }
 

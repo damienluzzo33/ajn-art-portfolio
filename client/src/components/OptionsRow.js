@@ -1,13 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { CollectorFilterModal } from './modals/CollectorFilter';
 
 export function CollectorOptions(props) {
-    const { data } = props;
+
+    const {newData, setNewData} = props;
+
     return (
-        <div className="options-row">
-            <h2>Data Options</h2>
-            <button>Filter Data</button>
-            <button>Get All Data</button>
-        </div>
+        <React.Fragment>
+            <div className="options-row">
+                <h2>Data Options</h2>
+                <button>Filter Data</button>
+                <button>Get All Data</button>
+            </div>
+            <div className='modal-background'>
+                <div className='modal-main'>
+                    <CollectorFilterModal newData={newData} setNewData={setNewData} />
+                </div>
+            </div>
+        </React.Fragment>
     );
 }
 

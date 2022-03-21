@@ -143,3 +143,20 @@ h1:hover {
     background-color: rgba(48, 217, 236, 0.897);
     box-shadow: 2px 2px 4px white, 2px -2px 4px white, -2px 2px 4px white, -2px -2px 4px white ;
 }
+
+.toggle-buttons-row button, .options-row button {
+    width: 120px;
+    font-weight: 600;
+    height: 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #48b4ef;
+    border: 1px solid white;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.toggle-buttons-row button:hover, .options-row button:hover {
+    background-color: rgba(48, 217, 236, 0.897);
+    box-shadow: 2px 2px 4px white, 2px -2px 4px white, -2px 2px 4px white, -2px -2px 4px white ;
+}
