@@ -3,18 +3,33 @@ import { CollectorFilterModal } from './modals/CollectorFilter';
 
 export function CollectorOptions(props) {
 
-    const {newData, setNewData} = props;
+    const {allCollectors, newData, setNewData} = props;
+
+    const [toggleModal, setToggleModal] = useState(false);
+
+    const handleToggle = (event) => {
+        if (!toggleModal) {
+            setToggleModal(!toggleModal);
+        } else {
+            if (event.target.className === 'modal-background' || event.target.className === 'modal-submit-button') {
+                setToggleModal(!toggleModal);
+            }
+        }
+    }
 
     return (
         <React.Fragment>
             <div className="options-row">
                 <h2>Data Options</h2>
-                <button>Filter Data</button>
+                <button onClick={handleToggle}>Filter Data</button>
                 <button>Get All Data</button>
             </div>
-            <div className='modal-background'>
+            <div 
+                style={{display: toggleModal ? "block" : "none"}} 
+                className='modal-background' onClick={handleToggle}
+            >
                 <div className='modal-main'>
-                    <CollectorFilterModal newData={newData} setNewData={setNewData} />
+                    <CollectorFilterModal newData={newData} setNewData={setNewData} handleToggle={handleToggle} />
                 </div>
             </div>
         </React.Fragment>

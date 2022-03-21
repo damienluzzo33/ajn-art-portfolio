@@ -1,29 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CollectorOptions } from './OptionsRow';
 
 export function CollectorTable(props) {
-    
     const { allCollectors } = props;
 
     const [newData, setNewData] = useState(allCollectors);
 
     return (
-            <React.Fragment>
-                <div className="data-table-div">
-                    <table>
-                        <tr>
-                            <th>First</th>
-                            <th>Last</th>
-                            <th>Email</th>
-                            <th>City</th>
-                            <th>Zip Code</th>
-                            <th>State</th>
-                            <th>Subscribed</th>
-                            <th>Gifts</th>
-                            <th>Date Joined</th>
-                            <th>More</th>
-                        </tr>
-                        {newData.map((collector) => (
+        <React.Fragment>
+            <div className="data-table-div">
+                <table>
+                    <tr>
+                        <th>First</th>
+                        <th>Last</th>
+                        <th>Email</th>
+                        <th>City</th>
+                        <th>Zip Code</th>
+                        <th>State</th>
+                        <th>Subscribed</th>
+                        <th>Gifts</th>
+                        <th>Date Joined</th>
+                        <th>More</th>
+                    </tr>
+                    {newData.map((collector) => (
                         <tr>
                             <td>{collector.first_name}</td>
                             <td>{collector.last_name}</td>
@@ -31,8 +30,10 @@ export function CollectorTable(props) {
                             <td>{collector.city}</td>
                             <td>{collector.zip_code}</td>
                             <td>{collector.state}</td>
-                            <td>{collector.subscribed ? "true" : "false"}</td>
-                            <td>{collector.collectors_gifts ? "true" : "false"}</td>
+                            <td>{collector.subscribed ? 'true' : 'false'}</td>
+                            <td>
+                                {collector.collectors_gifts ? 'true' : 'false'}
+                            </td>
                             <td>{collector.date_joined}</td>
                             <td>
                                 <button onClick={null}>More</button>
@@ -41,15 +42,16 @@ export function CollectorTable(props) {
                     ))}
                 </table>
             </div>
-            <CollectorOptions newData={newData} setNewData={setNewData} />
+            <CollectorOptions
+                allCollectors={allCollectors}
+                newData={newData}
+                setNewData={setNewData}
+            />
         </React.Fragment>
-        
     );
 }
 
-
 export function ProductTable(props) {
-    
     const { allProducts } = props;
 
     return (
@@ -77,15 +79,17 @@ export function ProductTable(props) {
                         <td>{product.title}</td>
                         <td>{product.medium}</td>
                         <td>{product.dimensions}</td>
-                        <td><button onClick={null}>View</button></td>
-                        <td>{product.original_art ? "true" : "false"}</td>
+                        <td>
+                            <button onClick={null}>View</button>
+                        </td>
+                        <td>{product.original_art ? 'true' : 'false'}</td>
                         <td>{product.limited_edition_count}</td>
                         <td>{product.original_price}</td>
                         <td>{product.limited_edition_price}</td>
-                        <td>{product.nft ? "true" : "false"}</td>
+                        <td>{product.nft ? 'true' : 'false'}</td>
                         <td>{product.nft_link}</td>
                         <td>{product.tattoo_template_price}</td>
-                        <td>{product.digital ? "true" : "false"}</td>
+                        <td>{product.digital ? 'true' : 'false'}</td>
                         <td>{product.discount}</td>
                         <td>{product.date_created}</td>
                         <td>
@@ -98,9 +102,7 @@ export function ProductTable(props) {
     );
 }
 
-
 export function BlogTable(props) {
-    
     const { allBlogs } = props;
 
     return (
@@ -115,7 +117,9 @@ export function BlogTable(props) {
                 {allBlogs.map((blog) => (
                     <tr>
                         <td>{blog.title}</td>
-                        <td><button onClick={null}>View</button></td>
+                        <td>
+                            <button onClick={null}>View</button>
+                        </td>
                         <td>{blog.date_created}</td>
                         <td>
                             <button onClick={null}>More</button>
@@ -127,9 +131,7 @@ export function BlogTable(props) {
     );
 }
 
-
 export function PodTable(props) {
-    
     const { allPodOptions } = props;
 
     return (
@@ -155,7 +157,6 @@ export function PodTable(props) {
 }
 
 export function InterestsTable(props) {
-    
     const { allInterests } = props;
 
     return (
@@ -179,7 +180,6 @@ export function InterestsTable(props) {
 }
 
 export function CouponTable(props) {
-    
     const { allCoupons } = props;
 
     return (

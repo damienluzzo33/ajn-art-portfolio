@@ -160,3 +160,64 @@ h1:hover {
     background-color: rgba(48, 217, 236, 0.897);
     box-shadow: 2px 2px 4px white, 2px -2px 4px white, -2px 2px 4px white, -2px -2px 4px white ;
 }
+
+.modal-background {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.575);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    
+}
+
+.modal-main {
+    position: absolute;
+    left: calc(50% - 200px);
+    top: calc(50% - 200px);
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b3349;
+    border-radius: 25px;
+    border: 3px solid white;
+}
+
+.modal-form {
+    padding: 10px;
+}
+
+.input-box {
+    margin-bottom: 15px;
+}
+
+.input-box label {
+    color: white;
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.input-box input {
+    width: 18px;
+    height: 18px;
+}
+
+.modal-submit-button {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(48, 217, 236, 0.685);
+    cursor: pointer;
+    border: 2px solid white;
+    padding: 8px 12px;
+    border-radius: 15px;
+}
+
+.modal-submit-button:hover {
+    background-color: rgba(48, 217, 236, 0.897);
+    box-shadow: 2px 2px 4px white, 2px -2px 4px white, -2px 2px 4px white, -2px -2px 4px white ;
+}

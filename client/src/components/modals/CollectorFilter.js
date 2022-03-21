@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 export function CollectorFilterModal(props) {
 
-    const {newData, setNewData} = props;
+    const {handleToggle, newData, setNewData} = props;
 
     const [dataFilters, setDataFilters] = useState({
         subscribed: {
@@ -19,31 +19,28 @@ export function CollectorFilterModal(props) {
         }
     })
 
-    const handleSubmitFilter = async () => {
-        let filteredData;
+    const handleSubmitFilter = async (event) => {
+        event.preventDefault();
+        let filteredData = newData;
         if (dataFilters.subscribed.value && dataFilters.subscribed.enabled) {
-            filteredData = newData.filter((element) => (element.subscribed));
-            setNewData(filteredData);
+            filteredData = filteredData.filter((element) => (element.subscribed));
         } else if (dataFilters.subscribed.enabled) {
-            filteredData = newData.filter((element) => (!element.subscribed));
-            setNewData(filteredData);
+            filteredData = filteredData.filter((element) => (!element.subscribed));
         }
 
         if (dataFilters.collectors_gifts.value && dataFilters.collectors_gifts.enabled) {
-            filteredData = newData.filter((element) => (element.collectors_gifts))
-            setNewData(filteredData);
+            filteredData = filteredData.filter((element) => (element.collectors_gifts))
         } else if (dataFilters.collectors_gifts.enabled) {
-            filteredData = newData.filter((element) => (!element.collectors_gifts));
-            setNewData(filteredData);
+            filteredData = filteredData.filter((element) => (!element.collectors_gifts));
         }
 
         if (dataFilters.purchases.value && dataFilters.purchases.enabled) {
-            filteredData = newData.sort((a,b) => b.purchases - a.purchases);
-            setNewData(filteredData);
+            filteredData = filteredData.sort((a,b) => b.purchases - a.purchases);
         } else if (dataFilters.purchases.enabled) {
-            filteredData = newData.sort((a,b) => a.purchases - b.purchases);
-            setNewData(filteredData);
+            filteredData = filteredData.sort((a,b) => a.purchases - b.purchases);
         }
+        setNewData(filteredData);
+        handleToggle();
     }
 
     const handleChange = async (event) => {
@@ -53,7 +50,7 @@ export function CollectorFilterModal(props) {
                 ...dataFilters,
                 subscribed: {
                     ...dataFilters.subscribed,
-                    value: input.checked
+                    value: input.checked ? true : false
                 }
             })
         } else if (input.name === "subscribed_enable") {
@@ -61,7 +58,7 @@ export function CollectorFilterModal(props) {
                 ...dataFilters,
                 subscribed: {
                     ...dataFilters.subscribed,
-                    enabled: input.checked
+                    enabled: input.checked ? true : false
                 }
             })
         } else if (input.name === "collectors_gifts") {
@@ -69,7 +66,7 @@ export function CollectorFilterModal(props) {
                 ...dataFilters,
                 collectors_gifts: {
                     ...dataFilters.collectors_gifts,
-                    value: input.checked
+                    value: input.checked ? true : false
                 }
             })
         } else if (input.name === "collectors_gifts_enable") {
@@ -77,7 +74,7 @@ export function CollectorFilterModal(props) {
                 ...dataFilters,
                 collectors_gifts: {
                     ...dataFilters.collectors_gifts,
-                    enabled: input.checked
+                    enabled: input.checked ? true : false
                 }
             })
         } else if (input.name === "purchases") {
@@ -85,7 +82,7 @@ export function CollectorFilterModal(props) {
                 ...dataFilters,
                 purchases: {
                     ...dataFilters.purchases,
-                    value: input.checked
+                    value: input.checked ? true : false
                 }
             })
         } else if (input.name === "purchases_enable") {
@@ -93,7 +90,7 @@ export function CollectorFilterModal(props) {
                 ...dataFilters,
                 purchases: {
                     ...dataFilters.purchases,
-                    enabled: input.checked
+                    enabled: input.checked ? true : false
                 }
             })
         }
@@ -109,6 +106,8 @@ export function CollectorFilterModal(props) {
                     name="subscribed" 
                     id="subscribed" 
                 />
+            </div>
+            <div className="input-box">
                 <label htmlFor="subscribed_enable">Enable Subscribed</label>
                 <input 
                     onChange={handleChange} 
@@ -116,6 +115,8 @@ export function CollectorFilterModal(props) {
                     name="subscribed_enable" 
                     id="subscribed_enable" 
                 />
+            </div>
+            <div className="input-box">
                 <label htmlFor="collectors_gifts">Collectors Gifts?</label>
                 <input 
                     onChange={handleChange} 
@@ -123,6 +124,8 @@ export function CollectorFilterModal(props) {
                     name="collectors_gifts" 
                     id="collectors_gifts" 
                 />
+            </div>
+            <div className="input-box">
                 <label htmlFor="collectors_gifts_enable">Enable Collectors Gifts</label>
                 <input 
                     onChange={handleChange} 
@@ -130,6 +133,8 @@ export function CollectorFilterModal(props) {
                     name="collectors_gifts_enable" 
                     id="collectors_gifts_enable" 
                 />
+            </div>
+            <div className="input-box">
                 <label htmlFor="purchases">Order By Purchases</label>
                 <input 
                     onChange={handleChange} 
@@ -137,13 +142,18 @@ export function CollectorFilterModal(props) {
                     name="purchases" 
                     id="purchases" 
                 />
-                <label htmlFor="purchases_enable">Enable Order Of Purchases </label>
+            </div>
+            <div className="input-box">
+                <label htmlFor="purchases_enable">Enable Order Of Purchases</label>
                 <input 
                     onChange={handleChange} 
                     type="checkbox" 
                     name="purchases_enable" 
                     id="purchases_enable" 
                 />
+            </div>
+            <div className="input-box">
+                <button type="submit" className="modal-submit-button">Filter Data</button>
             </div>
         </form>
     )
