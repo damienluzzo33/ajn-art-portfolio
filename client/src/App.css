@@ -1,3 +1,18 @@
+:root {
+    --navy: #03055ef3;
+    --blue: #0077b6;
+    --lightblue: #00b4d8;
+    --myblue: rgb(48, 218, 236);
+    --sky: #90e0ef;
+    --cloud: #caf0f8;
+    --grey: #4f6d7a;
+    --plain: #c0d6df;
+    --clear: #dbe9ee;
+    --royal: #4a6fa5;
+    --vibrant: #166088;
+    --darkmode: #0b3349;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -9,7 +24,7 @@ body {
     /* justify-content: center; */
     align-items: center;
     text-align: center;
-    background-color: rgba(36, 46, 77, 0.925);
+    background-color: var(--navy);
     /* width: 100vw; */
     min-height: 100vh;
     height: 100%;
@@ -23,16 +38,11 @@ body {
 h1 {
     font-size: 48px;
     padding: 10px;
-    border: 2px solid forestgreen;
-    background-color: rgb(0, 31, 5);
-    color: whitesmoke;
+    border: 2px solid var(--lightblue);
+    background-color: var(--blue);
+    color: var(--clear);
     border-radius: 20px;
     transition: box-shadow 0.4s linear;
-    /* cursor: pointer; */
-}
-
-h1:hover {
-    box-shadow: 2px 2px 5px white;
     cursor: pointer;
 }
 
@@ -41,7 +51,6 @@ h1:hover {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-
 }
 
 #home-main div {
@@ -58,9 +67,9 @@ h1:hover {
 #home-main div a button {
     width: 100%;
     height: 100%;
-    background-color: #48b4ef;
+    background-color: var(--lightblue);
     border-radius: 25px;
-    box-shadow: 4px 4px 6px black;
+    box-shadow: 4px 4px 6px var(--vibrant);
     transition: box-shadow, border, background-color 0.25s linear;
     font-size: 28px;
     font-weight: 600;
@@ -70,7 +79,7 @@ h1:hover {
 #home-main div a button:hover {
     box-shadow: 4px 4px 6px white;
     border: 3px solid white;
-    background-color: rgb(48, 218, 236);
+    background-color: var(--myblue);
     cursor: pointer;
 }
 
@@ -98,10 +107,10 @@ h1:hover {
 .data-table-div {
     width: fit-content;
     margin: 10px;
-    padding: 10px;
-    background-color: rgba(16, 16, 151, 0.753);
+    padding: 0px 10px;
+    background-color: var(--blue);
     border-radius: 15px;
-    border: 2px solid white;
+    border: 2px solid var(--sky);
 }
 
 .data-table-div table {
@@ -110,14 +119,15 @@ h1:hover {
 
 .data-table-div table tr th,
 .data-table-div table tr td {
-    color: white;
+    color: var(--plain);
+    font-weight: 600;
     padding-right: 8px;
     padding-left: 8px;
 }
 
 .data-table-div table td,
 .data-table-div table th {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--navy);
     padding-bottom: 15px;
     padding-top: 10px;
 }
@@ -140,8 +150,12 @@ h1:hover {
 }
 
 .go-back-div a:hover {
-    background-color: rgba(48, 217, 236, 0.897);
+    background-color: var(--myblue);
     box-shadow: 2px 2px 4px white, 2px -2px 4px white, -2px 2px 4px white, -2px -2px 4px white ;
+}
+
+.toggle-buttons-row h2, .options-row h2 {
+    color: white;
 }
 
 .toggle-buttons-row button, .options-row button {
@@ -150,15 +164,19 @@ h1:hover {
     height: 30px;
     font-size: 18px;
     color: white;
-    background-color: #48b4ef;
-    border: 1px solid white;
+    background-color: var(--blue);
+    border: 2px solid white;
     margin: 5px;
     cursor: pointer;
 }
 
 .toggle-buttons-row button:hover, .options-row button:hover {
-    background-color: rgba(48, 217, 236, 0.897);
+    background-color: var(--myblue);
     box-shadow: 2px 2px 4px white, 2px -2px 4px white, -2px 2px 4px white, -2px -2px 4px white ;
+}
+
+.options-row {
+    margin-top: 50px;
 }
 
 .modal-background {
@@ -181,7 +199,7 @@ h1:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0b3349;
+    background-color: var(--darkmode);
     border-radius: 25px;
     border: 3px solid white;
 }
@@ -211,7 +229,7 @@ h1:hover {
     font-size: 16px;
     font-weight: 600;
     color: white;
-    background-color: rgba(48, 217, 236, 0.685);
+    background-color: var(--lightblue);
     cursor: pointer;
     border: 2px solid white;
     padding: 8px 12px;
@@ -219,6 +237,6 @@ h1:hover {
 }
 
 .modal-submit-button:hover {
-    background-color: rgba(48, 217, 236, 0.897);
+    background-color: var(--myblue);
     box-shadow: 2px 2px 4px white, 2px -2px 4px white, -2px 2px 4px white, -2px -2px 4px white ;
 }
