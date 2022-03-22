@@ -8,6 +8,7 @@ export function CollectorOptions(props) {
     const [toggleModal, setToggleModal] = useState(false);
 
     const handleToggle = (event) => {
+        console.log(event.target);
         if (!toggleModal) {
             setToggleModal(!toggleModal);
         } else {
@@ -29,7 +30,7 @@ export function CollectorOptions(props) {
                 className='modal-background' onClick={handleToggle}
             >
                 <div className='modal-main'>
-                    <CollectorFilterModal newData={newData} setNewData={setNewData} handleToggle={handleToggle} />
+                    <CollectorFilterModal allCollectors={allCollectors} newData={newData} setNewData={setNewData} handleToggle={handleToggle} />
                 </div>
             </div>
         </React.Fragment>

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 export function CollectorFilterModal(props) {
 
-    const {handleToggle, newData, setNewData} = props;
+    const {allCollectors, handleToggle, newData, setNewData} = props;
 
     const [dataFilters, setDataFilters] = useState({
         subscribed: {
@@ -40,10 +40,10 @@ export function CollectorFilterModal(props) {
             filteredData = filteredData.sort((a,b) => a.purchases - b.purchases);
         }
         setNewData(filteredData);
-        handleToggle();
     }
 
     const handleChange = async (event) => {
+        setNewData(allCollectors);
         const input = event.target;
         if (input.name === "subscribed") {
             setDataFilters({
@@ -153,7 +153,7 @@ export function CollectorFilterModal(props) {
                 />
             </div>
             <div className="input-box">
-                <button type="submit" className="modal-submit-button">Filter Data</button>
+                <button type="submit" onClick={handleToggle} className="modal-submit-button">Filter Data</button>
             </div>
         </form>
     )
