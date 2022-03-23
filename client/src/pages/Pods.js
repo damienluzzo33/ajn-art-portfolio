@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { ALL_POD_OPTIONS } from '../utils/queries';
 import { PodTable } from '../components/Tables';
-import { PodOptionsOptions } from '../components/OptionsRow';
 import { PodViews } from '../components/ViewToggleRow';
 
 export default function Pods() {
@@ -28,9 +27,8 @@ export default function Pods() {
                 <div className="main-data-container">
                     <div className="data-dashboard">
                         <PodTable allPodOptions={allPodOptions} />
+                        <PodViews data={allPodOptions} />
                     </div>
-                    <PodViews data={allPodOptions} />
-                    <PodOptionsOptions data={allPodOptions} />
                     <div className="go-back-div">
                         <Link to="/">Go Back Home</Link>
                     </div>

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { ALL_INTERESTS } from '../utils/queries';
 import { InterestsTable } from '../components/Tables';
-import { InterestsOptions } from '../components/OptionsRow';
 
 export default function Interests() {
     const getAllInterests = useQuery(ALL_INTERESTS);
@@ -28,7 +27,6 @@ export default function Interests() {
                     <div className="data-dashboard">
                         <InterestsTable allInterests={allInterests} />
                     </div>
-                    <InterestsOptions data={allInterests} />
                     <div className="go-back-div">
                         <Link to="/">Go Back Home</Link>
                     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 export function CollectorViews(props) {
-    const { data } = props;
+    // const { data } = props;
     return (
         <div className="toggle-buttons-row">
             <h2>View Options</h2>
@@ -12,7 +12,7 @@ export function CollectorViews(props) {
 }
 
 export function CouponViews(props) {
-    const { data } = props;
+    // const { data } = props;
     return (
         <div className="toggle-buttons-row">
             <h2>View Options</h2>
@@ -23,7 +23,7 @@ export function CouponViews(props) {
 }
 
 export function ProductViews(props) {
-    const { data } = props;
+    // const { data } = props;
     return (
         <div className="toggle-buttons-row">
             <h2>View Options</h2>
@@ -34,7 +34,7 @@ export function ProductViews(props) {
 }
 
 export function PodViews(props) {
-    const { data } = props;
+    // const { data } = props;
     return (
         <div className="toggle-buttons-row">
             <h2>View Options</h2>
