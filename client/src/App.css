@@ -95,7 +95,7 @@ h1 {
 }
 
 .data-dashboard {
-    height: 350px;
+    height: 600px;
     width: 100vw;
     overflow-y: scroll;
 }
@@ -111,6 +111,12 @@ h1 {
     background-color: var(--blue);
     border-radius: 15px;
     border: 2px solid var(--sky);
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+.data-table-div::-webkit-scrollbar {
+    display: none;
 }
 
 .data-table-div table {

@@ -1,3 +1,4 @@
+import { mergeSort } from "../../utils/helpers";
 import React, {useState} from "react";
 
 export function ProductFilterModal(props) {
@@ -19,10 +20,12 @@ export function ProductFilterModal(props) {
         }
     })
 
+
+
     const handleSubmitFilter = async (event) => {
         event.preventDefault();
         let filteredData = newData;
-
+        console.log(dataFilters);
         if (dataFilters.digital.value && dataFilters.digital.enabled) {
             filteredData = filteredData.filter((element) => (element.digital));
         } else if (dataFilters.digital.enabled) {
@@ -36,16 +39,19 @@ export function ProductFilterModal(props) {
         }
 
         if (dataFilters.original_price.value && dataFilters.original_price.enabled) {
-            filteredData = filteredData.sort((a,b) => b.original_price - a.original_price);
+            filteredData = mergeSort(filteredData, "original_price").reverse();
         } else if (dataFilters.original_price.enabled) {
-            filteredData = filteredData.sort((a,b) => a.original_price - b.original_price);
+            filteredData = mergeSort(filteredData, "original_price");
         }
+        console.log(filteredData);
         setNewData(filteredData);
     }
 
     const handleChange = async (event) => {
         setNewData(allProducts);
         const input = event.target;
+        // console.log(input);
+        // console.log(dataFilters);
         if (input.name === "digital") {
             setDataFilters({
                 ...dataFilters,

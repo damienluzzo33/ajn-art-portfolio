@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { mergeSort } from "../../utils/helpers";
 
 export function CollectorFilterModal(props) {
 
@@ -35,9 +36,9 @@ export function CollectorFilterModal(props) {
         }
 
         if (dataFilters.purchases.value && dataFilters.purchases.enabled) {
-            filteredData = filteredData.sort((a,b) => b.purchases - a.purchases);
+            filteredData = mergeSort(filteredData, "purchases").reverse();
         } else if (dataFilters.purchases.enabled) {
-            filteredData = filteredData.sort((a,b) => a.purchases - b.purchases);
+            filteredData = mergeSort(filteredData, "purchases");
         }
         setNewData(filteredData);
     }

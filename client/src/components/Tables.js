@@ -17,6 +17,7 @@ export function CollectorTable(props) {
                         <th>City</th>
                         <th>Zip Code</th>
                         <th>State</th>
+                        <th>Purchases</th>
                         <th>Subscribed</th>
                         <th>Gifts</th>
                         <th>Date Joined</th>
@@ -30,6 +31,7 @@ export function CollectorTable(props) {
                             <td>{collector.city}</td>
                             <td>{collector.zip_code}</td>
                             <td>{collector.state}</td>
+                            <td>{collector.purchases}</td>
                             <td>{collector.subscribed ? 'true' : 'false'}</td>
                             <td>
                                 {collector.collectors_gifts ? 'true' : 'false'}
@@ -77,7 +79,7 @@ export function ProductTable(props) {
                         <th>Date Created</th>
                         <th>More</th>
                     </tr>
-                    {allProducts.map((product) => (
+                    {newData.map((product) => (
                         <tr>
                             <td>{product.title}</td>
                             <td>{product.medium}</td>
